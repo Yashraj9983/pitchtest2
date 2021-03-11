@@ -3,14 +3,14 @@ let pitch;
 let audioContext;
 let mic;
 let freq=0;
-const button=  document.getElementById('button');
+//const button=  document.getElementById('button');
 
 function setup() {
   createCanvas(400, 400);
   audioContext=getAudioContext();
   mic= new p5.AudioIn();
-  mic.start(listening);
-  
+  mic.start(listening); 
+  getAudioContext().resume();
 }
 
 function listening(){
@@ -21,12 +21,11 @@ function listening(){
   mic.stream,
   modelLoaded);
 }
-play.onclick = function() {
-audioContext.resume();
-}
-function touchStarted(){
-    getAudioContext().resume()
-}
+/*const startButton=document.createElement("button");
+startButton.innerText="play";
+startButton.addEventListener("click",()=>{
+});*/
+//function touchStarted(){    getAudioContext().resume()}
 
 function gotPitch(error,frequency){
   if(error){
@@ -44,6 +43,7 @@ function modelLoaded() {
   console.log('Model Loaded!');
   pitch.getPitch(gotPitch);
 }
+
 function draw() {
   background(0);
   textAlign(CENTER,CENTER);
