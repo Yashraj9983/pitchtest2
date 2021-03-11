@@ -21,7 +21,9 @@ function listening(){
   mic.stream,
   modelLoaded);
 }
-
+play.onclick = function() {
+getAudioContext().resume();
+}
 function touchStarted(){
     audioContext().resume()
 }
