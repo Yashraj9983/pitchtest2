@@ -68,7 +68,7 @@ function draw() {
     'audioContext': audioContext,
     'resume': function() {
       audioContext.resume();
-      status('Running ...');
+      status('Running ..');
     }
   }
 })();
