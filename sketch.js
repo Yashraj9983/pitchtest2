@@ -23,7 +23,8 @@ function setup() {
     'audioContext': audioContext,
     'resume': function() {
       audioContext.resume();
-      status('Running ...');
+      if (audioContext.state === 'running') {
+      status('Running ...');}
     }
   }
 })();
