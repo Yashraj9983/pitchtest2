@@ -7,11 +7,19 @@ let freq=0;
 
 function setup() {
   createCanvas(400, 400);
-  audioContext=getAudioContext();
+  audioContext=new AudioContext();
   mic= new p5.AudioIn();
   mic.start(listening); 
-  getAudioContext().resume();
+  if (audioContext.state === 'running') {
+          status('Running ...');
+        } else {
+          // user gesture (like click) is required to start AudioContext, in some browser versions
+          status('<a href="javascript:audioContext.resume();" style="color:red;">* Click here to start the demo *</a>')
+        }
 }
+  function status(message) {
+    document.getElementById('status').innerHTML = message;
+  }
 
 function listening(){
   console.log('listening');
