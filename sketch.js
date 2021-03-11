@@ -1,3 +1,8 @@
+crepe = (function() {
+  function error(message) {
+    document.getElementById('status').innerHTML = 'Error: ' + message;
+    return message;
+  }
 let model_url='https://cdn.jsdelivr.net/gh/ml5js/ml5-data-and-models/models/pitch-detection/crepe/'
 let pitch;
 let audioContext;
@@ -14,7 +19,7 @@ function setup() {
           status('Running ...');
         } else {
           // user gesture (like click) is required to start AudioContext, in some browser versions
-          status('<a href="javascript:audioContext.resume();" style="color:red;">* Click here to start the demo *</a>')
+          status('<a href="javascript:crepe.resume();" style="color:red;">* Click here to start the demo *</a>')
         }
 }
   function status(message) {
@@ -59,3 +64,11 @@ function draw() {
   textSize(64);
   text(freq.toFixed(2),width/2,height/2);
 }
+ return {
+    'audioContext': audioContext,
+    'resume': function() {
+      audioContext.resume();
+      status('Running ...');
+    }
+  }
+})();
