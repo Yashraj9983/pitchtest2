@@ -22,10 +22,10 @@ function listening(){
   modelLoaded);
 }
 play.onclick = function() {
-getAudioContext().resume();
+audioContext.resume();
 }
 function touchStarted(){
-    audioContext().resume()
+    getAudioContext().resume()
 }
 
 function gotPitch(error,frequency){
