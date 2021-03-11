@@ -4,6 +4,7 @@ let audioContext;
 let mic;
 let freq=0;
 const button=  document.getElementById('button');
+
 function setup() {
   createCanvas(400, 400);
   audioContext=getAudioContext();
@@ -20,13 +21,9 @@ function listening(){
   mic.stream,
   modelLoaded);
 }
-document.querySelector('button').addEventListener('click', function() {
-  audioContext.resume().then(() => {
-    console.log('Playback resumed successfully');
-  });
-});
+
 function touchStarted(){
-getAudioContext().resume()
+    audioContext().resume()
 }
 
 function gotPitch(error,frequency){
