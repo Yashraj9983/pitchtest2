@@ -20,7 +20,11 @@ function listening(){
   mic.stream,
   modelLoaded);
 }
-
+document.querySelector('button').addEventListener('click', function() {
+  audioContext.resume().then(() => {
+    console.log('Playback resumed successfully');
+  });
+});
 function touchStarted(){
 getAudioContext().resume()
 }
