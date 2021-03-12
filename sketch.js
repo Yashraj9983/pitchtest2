@@ -3,6 +3,8 @@ let pitch;
 let audioContext;
 let mic;
 let freq=0;
+let audstat=0;
+
 //const button=  document.getElementById('button');
 
 function setup() {
@@ -37,12 +39,17 @@ function audint(){
     audioContext=getAudioContext();
   mic= new p5.AudioIn();
   mic.start(listening);
+    audstat=1;
+
 }
 function audstop(){
   audioContext.suspend();
+  audstat=0;
 }
 function audstart(){
   audioContext.resume();
+  audstat=1;
+
 }
 function listening(){
   console.log('listening');
@@ -84,10 +91,34 @@ function modelLoaded() {
   pitch.getPitch(gotPitch);
 }
 
-function draw() {
+function getData(){
+  return freq;
+}
+
+ Plotly.plot(document.querySelector(".wrapper"),[{
+  y:[getData()],
+  type:'line'
+}]);
+
+var cnt=0;
+
+setInterval(function(){
+  if(audstat==1){
+  Plotly.extendTraces(document.querySelector(".wrapper"),{y:[[getData()]]},[0]);
+  cnt++;
+  if(cnt>300){
+    Plotly.relayout(document.querySelector(".wrapper"),{
+      xaxis:{
+        range:[cnt-300,cnt]
+      }
+    });
+  }
+}},15);
+
+/*function draw() {
   background(0);
   textAlign(CENTER,CENTER);
   fill(255);
   textSize(64);
   text(freq.toFixed(2),width/2,height/2);
-}
+}*/
