@@ -8,7 +8,7 @@ let audstat=0;
 //const button=  document.getElementById('button');
 
 function setup() {
-  createCanvas(400, 400);
+ // createCanvas(400, 400);
 /* crepe = (function() {
 
   audioContext=new AudioContext();
