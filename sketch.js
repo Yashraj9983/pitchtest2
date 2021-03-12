@@ -7,9 +7,6 @@ let freq=0;
 
 function setup() {
   createCanvas(400, 400);
-   audioContext=getAudioContext();
-  mic= new p5.AudioIn();
-  mic.start(listening);
 /* crepe = (function() {
 
   audioContext=new AudioContext();
@@ -36,14 +33,16 @@ function setup() {
  // function status(message) {
    // document.getElementById('status').innerHTML = message;
   //}
+function audint(){
+    audioContext=getAudioContext();
+  mic= new p5.AudioIn();
+  mic.start(listening);
+}
 function audstop(){
-  
   audioContext.suspend();
 }
 function audstart(){
-  
   audioContext.resume();
-  
 }
 function listening(){
   console.log('listening');
