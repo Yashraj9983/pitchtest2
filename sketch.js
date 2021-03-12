@@ -7,7 +7,7 @@ let freq=0;
 
 function setup() {
   createCanvas(400, 400);
- crepe = (function() {
+/* crepe = (function() {
 
   audioContext=new AudioContext();
   mic= new p5.AudioIn();
@@ -28,11 +28,11 @@ function setup() {
     }
   }
 })();
-
+*/
 }
-  function status(message) {
-    document.getElementById('status').innerHTML = message;
-  }
+ // function status(message) {
+   // document.getElementById('status').innerHTML = message;
+  //}
 
 function listening(){
   console.log('listening');
@@ -42,6 +42,13 @@ function listening(){
   mic.stream,
   modelLoaded);
 }
+function touchStarted(){
+  const button=  document.getElementById('click');
+  audioContext=getAudioContext();
+  mic= new p5.AudioIn();
+  mic.start(listening);
+}
+
 /*const startButton=document.createElement("button");
 startButton.innerText="play";
 startButton.addEventListener("click",()=>{
