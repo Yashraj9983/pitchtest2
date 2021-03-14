@@ -43,7 +43,7 @@ function audint(){
 
 }
 function audstop(){
-  audioContext.suspend();
+  //audioContext.suspend();
   audstat=0;
 }
 function audstart(){
