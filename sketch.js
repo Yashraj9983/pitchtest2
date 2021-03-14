@@ -53,7 +53,8 @@ function audstart(){
 }
 function listening(){
   console.log('listening');
-  
+  audioContext.resume();
+
   pitch=ml5.pitchDetection(model_url,
   audioContext,
   mic.stream,
@@ -106,10 +107,10 @@ setInterval(function(){
   if(audstat==1){
   Plotly.extendTraces(document.querySelector(".wrapper"),{y:[[getData()]]},[0]);
   cnt++;
-  if(cnt>300){
+  if(cnt>100){
     Plotly.relayout(document.querySelector(".wrapper"),{
       xaxis:{
-        range:[cnt-300,cnt]
+        range:[cnt-100,cnt]
       }
     });
   }
