@@ -1,4 +1,4 @@
-let model_url='https://cdn.jsdelivr.net/gh/ml5js/ml5-data-and-models/models/pitch-detection/crepe/'
+let model_url='https://github.com/ml5js/ml5-data-and-models/tree/master/models/pitch-detection/crepe/'
 let pitch;
 let audioContext;
 let mic;
