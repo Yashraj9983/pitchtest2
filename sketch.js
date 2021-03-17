@@ -39,8 +39,7 @@ function audint(){
     audioContext=getAudioContext();
   mic= new p5.AudioIn();
   mic.start(listening);
-    audstat=1;
-
+  
 }
 function audstop(){
   //audioContext.suspend();
@@ -60,6 +59,8 @@ function listening(){
   audioContext,
   mic.stream,
   modelLoaded);
+ 
+  
 }
 
 
@@ -83,6 +84,8 @@ function gotPitch(error,frequency){
   else{
     if(frequency){
       freq=frequency;
+      document.getElementById('curfreq').innerHTML = freq;
+      document.getElementById('modelstatus').innerHTML = "ModelLoaded";
     }
   }
   pitch.getPitch(gotPitch);
