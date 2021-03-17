@@ -1,4 +1,3 @@
-let model_url='https://github.com/ml5js/ml5-data-and-models/tree/master/models/pitch-detection/crepe/'
 let pitch;
 let audioContext;
 let mic;
@@ -55,7 +54,8 @@ function listening(){
   console.log('listening');
   audioContext.resume();
 
-  pitch=ml5.pitchDetection(model_url,
+  pitch=ml5.pitchDetection(
+   'crepe/model.json',
   audioContext,
   mic.stream,
   modelLoaded);
