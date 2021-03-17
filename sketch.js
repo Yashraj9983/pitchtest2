@@ -85,8 +85,7 @@ function gotPitch(error,frequency){
     if(frequency){
       freq=frequency;
       document.getElementById('curfreq').innerHTML = freq;
-      document.getElementById('modelstatus').innerHTML = "ModelLoaded";
-    }
+          }
   }
   pitch.getPitch(gotPitch);
 }
@@ -94,6 +93,9 @@ function gotPitch(error,frequency){
 function modelLoaded() {
   console.log('Model Loaded!');
   pitch.getPitch(gotPitch);
+  audstat=1;
+  document.getElementById('modelstatus').innerHTML = "ModelLoaded";
+
 }
 
 function getData(){
