@@ -1,4 +1,4 @@
-const model_url='https://cdn.jsdelivr.net/gh/Yashraj9983/pitchtest2/crepe/'
+//const model_url='https://cdn.jsdelivr.net/gh/Yashraj9983/pitchtest2/crepe/'
 let pitch;
 let audioContext;
 let mic;
@@ -56,7 +56,7 @@ function listening(){
   audioContext.resume();
 
   pitch=ml5.pitchDetection(
-   model_url,
+   './crepe/',
   audioContext,
   mic.stream,
   modelLoaded);
